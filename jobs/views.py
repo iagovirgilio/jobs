@@ -34,7 +34,8 @@ def encontrar_jobs(request):
                 .filter(preco__lte=preco_maximo)\
                 .filter(prazo_entrega__gte=prazo_minimo)\
                 .filter(prazo_entrega__lte=prazo_maximo)\
-                .filter(categoria__in=categoria)
+                .filter(categoria__in=categoria)\
+                .filter(reservado=False)
         else:
             jobs = Jobs.objects.filter(reservado=False)
 
