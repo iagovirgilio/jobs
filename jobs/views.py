@@ -35,7 +35,7 @@ def encontrar_jobs(request):
                 categoria = ['D',]
             elif categoria == 'EV':
                 categoria = ['EV',]
-            
+
             jobs = Jobs.objects.filter(preco__gte=preco_minimo)\
                 .filter(preco__lte=preco_maximo)\
                 .filter(prazo_entrega__gte=prazo_minimo)\
@@ -81,7 +81,6 @@ def perfil(request):
             messages.add_message(request, constants.ERROR, 'Já existe um usuário com esse E-mail')
             return redirect('/jobs/perfil')
 
-        
         request.user.username = username
         request.user.email = email
         request.user.first_name = primeiro_nome
